@@ -1,5 +1,5 @@
 import type { Square } from 'chess.js'
-import { PIECE_GLYPH } from './pieces'
+import { Piece } from './Piece'
 
 export type BoardSquare = {
   square: Square
@@ -80,14 +80,7 @@ export function Board({
             >
               {isLegal && !piece ? <span className="dot" /> : null}
               {isLegal && piece ? <span className="ring" /> : null}
-              {piece ? (
-                <span
-                  className={`piece ${piece.color === 'w' ? 'pw' : 'pb'}`}
-                  aria-hidden
-                >
-                  {PIECE_GLYPH[`${piece.color}${piece.type.toUpperCase()}`]}
-                </span>
-              ) : null}
+              {piece ? <Piece color={piece.color} type={piece.type} /> : null}
               {f === files[0] ? (
                 <span className="coord rank">{algRank}</span>
               ) : null}

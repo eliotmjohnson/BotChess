@@ -172,8 +172,8 @@ export default function App() {
       <header className="top">
         <div className="brand">
           <span className="logo" aria-hidden>
-            ♞
-          </span>
+            <img src={`${import.meta.env.BASE_URL}apple-touch-icon.png`} alt="" />
+            </span>
           <div>
             <h1>Bot Chess</h1>
             <p className="status">{statusText(chess, playerSide, thinking)}</p>
