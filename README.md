@@ -2,7 +2,7 @@
 
 Slick chess PWA — play against a client-side bot. No account.
 
-**Live:** https://eliotmjohnson.github.io/Bot-Chess/
+**Live:** https://eliotmjohnson.github.io/BotChess/
 
 ## Stack
 
