@@ -20,8 +20,9 @@ type BoardProps = {
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const
 
-function sqAt(file: number, rank: number): Square {
-  return `${FILES[file]}${rank + 1}` as Square
+/** chess.js board()[0] is rank 8; [7] is rank 1 */
+function sqAt(file: number, rankIndex: number): Square {
+  return `${FILES[file]}${8 - rankIndex}` as Square
 }
 
 export function Board({
@@ -34,8 +35,11 @@ export function Board({
   disabled,
   onSquareClick,
 }: BoardProps) {
-  const ranks = orientation === 'w' ? [7, 6, 5, 4, 3, 2, 1, 0] : [0, 1, 2, 3, 4, 5, 6, 7]
-  const files = orientation === 'w' ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0]
+  // White at bottom: rank 8 (index 0) at top. Black at bottom: flip.
+  const ranks =
+    orientation === 'w' ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0]
+  const files =
+    orientation === 'w' ? [0, 1, 2, 3, 4, 5, 6, 7] : [7, 6, 5, 4, 3, 2, 1, 0]
 
   return (
     <div className="board" role="grid" aria-label="Chess board">
@@ -43,7 +47,8 @@ export function Board({
         files.map((f) => {
           const square = sqAt(f, r)
           const piece = board[r]![f]
-          const isLight = (f + r) % 2 === 1
+          const algRank = 8 - r
+          const isLight = (f + algRank) % 2 === 0
           const isSelected = selected === square
           const isLast =
             lastMove && (lastMove.from === square || lastMove.to === square)
@@ -84,7 +89,7 @@ export function Board({
                 </span>
               ) : null}
               {f === files[0] ? (
-                <span className="coord rank">{r + 1}</span>
+                <span className="coord rank">{algRank}</span>
               ) : null}
               {r === ranks[ranks.length - 1] ? (
                 <span className="coord file">{FILES[f]}</span>

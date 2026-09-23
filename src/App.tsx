@@ -53,7 +53,7 @@ export default function App() {
       for (let f = 0; f < 8; f++) {
         const p = board[r]![f]
         if (p?.type === 'k' && p.color === chess.turn()) {
-          return `${'abcdefgh'[f]}${r + 1}` as Square
+          return `${'abcdefgh'[f]}${8 - r}` as Square
         }
       }
     }
@@ -79,28 +79,33 @@ export default function App() {
   )
 
   useEffect(() => {
-    if (gameOver || thinking) return
+    if (gameOver) return
     if (chess.turn() === playerSide) return
 
     const gen = ++botGen.current
+    let cancelled = false
     setThinking(true)
     const t = window.setTimeout(() => {
-      if (gen !== botGen.current) return
-      const move = pickBotMove(fen, difficulty)
-      if (move && gen === botGen.current) {
-        const next = new Chess(fen)
-        next.move(move)
-        setHistory((h) => [...h, fen])
-        setFen(next.fen())
-        setLastMove({ from: move.from, to: move.to })
+      if (cancelled || gen !== botGen.current) return
+      try {
+        const move = pickBotMove(fen, difficulty)
+        if (move && !cancelled && gen === botGen.current) {
+          const next = new Chess(fen)
+          next.move(move)
+          setHistory((h) => [...h, fen])
+          setFen(next.fen())
+          setLastMove({ from: move.from, to: move.to })
+        }
+      } finally {
+        if (!cancelled && gen === botGen.current) setThinking(false)
       }
-      if (gen === botGen.current) setThinking(false)
-    }, 260)
+    }, 50)
 
     return () => {
+      cancelled = true
       window.clearTimeout(t)
     }
-  }, [fen, playerSide, difficulty, gameOver, thinking, chess])
+  }, [fen, playerSide, difficulty, gameOver, chess])
 
   function onSquareClick(sq: Square) {
     if (!isPlayerTurn) return
