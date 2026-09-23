@@ -1,33 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2a3548"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2c3648"/>
       <stop offset="100%" stop-color="#121820"/>
     </linearGradient>
   </defs>
-  <rect width="1024" height="1024" rx="224" fill="url(#g)"/>
-  <rect x="128" y="128" width="768" height="768" rx="96" fill="#1a2332" stroke="#c9a227" stroke-width="24"/>
-  <!-- mini board -->
-  <g fill="#c9a227" opacity="0.9">
-    <rect x="220" y="220" width="140" height="140" rx="12"/>
-    <rect x="520" y="220" width="140" height="140" rx="12"/>
-    <rect x="370" y="370" width="140" height="140" rx="12"/>
-    <rect x="670" y="370" width="140" height="140" rx="12"/>
-    <rect x="220" y="520" width="140" height="140" rx="12"/>
-    <rect x="520" y="520" width="140" height="140" rx="12"/>
-    <rect x="370" y="670" width="140" height="140" rx="12"/>
-    <rect x="670" y="670" width="140" height="140" rx="12"/>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect x="96" y="96" width="832" height="832" rx="196" fill="#1a2332" stroke="#ffd60a" stroke-width="28"/>
+  <!-- King -->
+  <g transform="translate(512 520)" fill="#f5f7fb" stroke="#2a3344" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 -220 v70 M-55 -185 h110" fill="none"/>
+    <path d="M0 -130 c95 0 175 55 175 145 0 70-45 115-95 140 h-160 c-50-25-95-70-95-140 0-90 80-145 175-145z"/>
+    <path d="M-150 165 h300 l-28 70 H-122z"/>
+    <path d="M-175 245 h350 v45 c0 28-22 50-50 50 H-125 c-28 0-50-22-50-50z"/>
+    <circle cx="0" cy="-40" r="28" fill="#ffd60a" stroke="none"/>
   </g>
-  <g fill="#2a3548" opacity="0.55">
-    <rect x="370" y="220" width="140" height="140" rx="12"/>
-    <rect x="670" y="220" width="140" height="140" rx="12"/>
-    <rect x="220" y="370" width="140" height="140" rx="12"/>
-    <rect x="520" y="370" width="140" height="140" rx="12"/>
-    <rect x="370" y="520" width="140" height="140" rx="12"/>
-    <rect x="670" y="520" width="140" height="140" rx="12"/>
-    <rect x="220" y="670" width="140" height="140" rx="12"/>
-    <rect x="520" y="670" width="140" height="140" rx="12"/>
-  </g>
-  <!-- knight silhouette -->
-  <path fill="#f4f7fb" d="M560 720c-90 0-150-40-170-110-8-28 6-48 28-58 18-8 28-24 24-44-10-52 18-100 78-128 22-10 28-36 14-54-8-10-4-26 10-30 42-12 96 8 124 52 36 56 28 128-8 176-18 24-14 52 8 70 36 28 48 70 28 112-18 38-66 54-136 54z"/>
 </svg>

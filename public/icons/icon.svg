@@ -1,14 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#2a3548"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2c3648"/>
       <stop offset="100%" stop-color="#121820"/>
     </linearGradient>
   </defs>
-  <!-- full-bleed for maskable; safe zone content inset -->
-  <rect width="1024" height="1024" fill="url(#g)"/>
-  <rect x="112" y="112" width="800" height="800" rx="180" fill="#1a2332" stroke="#c9a227" stroke-width="28"/>
-  <g transform="translate(512 540)">
-    <path fill="#f4f7fb" transform="translate(-90 -160) scale(1.35)" d="M100 280c-70 0-118-32-134-88-6-22 5-38 22-46 14-6 22-19 19-35C95 70 117 32 164 10c17-8 22-28 11-42C169-40 172-52 183-55c33-9 75 6 97 41 28 44 22 100-6 138-14 19-11 41 6 55 28 22 38 55 22 88-14 30-52 43-107 43z"/>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect x="96" y="96" width="832" height="832" rx="196" fill="#1a2332" stroke="#ffd60a" stroke-width="28"/>
+  <!-- King -->
+  <g transform="translate(512 520)" fill="#f5f7fb" stroke="#2a3344" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M0 -220 v70 M-55 -185 h110" fill="none"/>
+    <path d="M0 -130 c95 0 175 55 175 145 0 70-45 115-95 140 h-160 c-50-25-95-70-95-140 0-90 80-145 175-145z"/>
+    <path d="M-150 165 h300 l-28 70 H-122z"/>
+    <path d="M-175 245 h350 v45 c0 28-22 50-50 50 H-125 c-28 0-50-22-50-50z"/>
+    <circle cx="0" cy="-40" r="28" fill="#ffd60a" stroke="none"/>
   </g>
 </svg>

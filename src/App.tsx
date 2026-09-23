@@ -173,19 +173,12 @@ export default function App() {
         <div className="brand">
           <span className="logo" aria-hidden>
             <img src={`${import.meta.env.BASE_URL}apple-touch-icon.png`} alt="" />
-            </span>
+          </span>
           <div>
             <h1>Bot Chess</h1>
             <p className="status">{statusText(chess, playerSide, thinking)}</p>
           </div>
         </div>
-        <button
-          type="button"
-          className="btn ghost"
-          onClick={() => setMenuOpen(true)}
-        >
-          New
-        </button>
       </header>
 
       <main className="stage">
@@ -215,7 +208,11 @@ export default function App() {
           <span className="sep">·</span>
           <span className="cap">{difficulty}</span>
         </div>
-        <button type="button" className="btn primary" onClick={() => newGame()}>
+        <button
+          type="button"
+          className="btn primary"
+          onClick={() => setMenuOpen(true)}
+        >
           New game
         </button>
       </footer>

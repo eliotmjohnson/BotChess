@@ -3,7 +3,7 @@ import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/bot-chess/',
+  base: '/Bot-Chess/',
   plugins: [
     react(),
     VitePWA({
@@ -22,7 +22,7 @@ export default defineConfig({
         background_color: '#0b0f14',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/bot-chess/',
+        start_url: '/Bot-Chess/',
         icons: [
           {
             src: 'icons/icon-192.png',
